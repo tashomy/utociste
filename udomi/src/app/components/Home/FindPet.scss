@@ -1,0 +1,124 @@
+.find-pet-wrapper {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    min-width: 100%;
+    background-color: var(--green);
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .find-pet-container {
+    padding-block: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      color: var(--light);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .pet-finder {
+      width: 100%;
+      margin-inline: auto;
+      background-color: var(--light);
+      margin-top: 80px;
+      .pet-finder-heading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--green);
+
+        button {
+          position: relative;
+          flex-grow: 1;
+          border: 0;
+          border-right: 1px solid var(--green);
+          background-color: transparent;
+          color: var(--dark);
+          font-size: 22px;
+          padding-block: 15px;
+          span {
+            overflow: hidden;
+            display: block;
+            position: relative;
+            isolation: isolate;
+            transition: all 0.3s ease;
+            max-width: max-content;
+            margin-inline: auto;
+          }
+          &:last-of-type {
+            border-right: 0;
+          }
+        }
+
+        .active {
+          @keyframes fadeIn {
+            from {
+              transform: translateX(-100%);
+            }
+            to {
+              transform: translateX(0);
+            }
+          }
+          span {
+            &::after {
+              position: absolute;
+              animation: fadeIn 0.3s ease;
+              content: "";
+              height: 10px;
+              width: 100%;
+              z-index: -1;
+              background-color: var(--accent);
+              left: 0;
+              bottom: 7px;
+              opacity: 0.4;
+            }
+          }
+        }
+      }
+      .pet-finder-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-block: 40px;
+        select {
+          width: 25%;
+          font-size: 22px;
+        }
+      }
+
+      .pet-finder-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        button {
+          margin: 40px;
+          margin-top: 0;
+          padding: 10px 35px;
+          border: 1px solid var(--green);
+          border-radius: 45px;
+          background-color: transparent;
+          font-size: 22px;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: var(--green);
+            color: var(--light);
+          }
+          &:last-of-type {
+            border-color: var(--accent);
+            &:hover {
+              background-color: var(--accent);
+            }
+          }
+        }
+      }
+    }
+  }
+}

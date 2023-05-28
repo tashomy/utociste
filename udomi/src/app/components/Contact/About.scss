@@ -1,0 +1,121 @@
+.contact-wrapper {
+  isolation: isolate;
+  position: relative;
+  padding-block: 50px;
+  &::after {
+    position: absolute;
+    height: 600px;
+    width: 100%;
+    content: "";
+    background-color: var(--green);
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .contact-utociste {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: url("../../../assets/bgs/contact.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right center;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      isolation: isolate;
+      min-height: 500px;
+      &::after {
+        position: absolute;
+        content: "";
+        inset: 0;
+        background-color: #0000006f;
+        z-index: -1;
+      }
+      h2 {
+        text-decoration: none;
+        color: #fff;
+        font-size: 42px;
+        font-weight: 700;
+      }
+      a {
+        text-decoration: none;
+        position: relative;
+        display: block;
+        margin-top: 40px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 20px;
+        overflow: hidden;
+        isolation: isolate;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+        &::after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          inset: 0;
+          transform: translateX(-101%);
+          background-color: var(--green);
+        }
+        &:hover {
+          color: #fff;
+
+          &::after {
+            animation: linkSlide 0.3s ease;
+            transform: translate(0);
+          }
+        }
+      }
+      @keyframes linkSlide {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+    }
+    .about-utociste {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .about-utociste-left,
+      .about-utociste-right {
+        width: 50%;
+        padding-inline: 15px;
+        height: 600px;
+      }
+
+      .about-utociste-left {
+        background-color: var(--green);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        h3 {
+          margin-bottom: 30px;
+        }
+      }
+
+      .about-utociste-right {
+        padding-right: 0;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+      }
+    }
+  }
+}
